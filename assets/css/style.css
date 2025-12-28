@@ -11,6 +11,11 @@
     --font-base: "Bai Jamjuree";
 }
 
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--color-base2);
     color: var(--color-body);
@@ -282,4 +287,44 @@ p{
 
 .table-dark th {
     color: var(--color-body); /* Couleur pour les en-têtes de tableau sombres */
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-brand);
+    color: var(--color-base);
+    padding: 8px 16px;
+    z-index: 9999;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Improved focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    .shadow-effect {
+        transition: none;
+    }
+    
+    a, .card-custom .card-custom-image img {
+        transition: none;
+    }
 }
